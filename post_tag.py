@@ -1,7 +1,7 @@
 from flask import send_from_directory, render_template, flash, redirect, session, url_for, request, g
 from appdef import app, conn
 import tags, main, time, datetime, os
-from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 from appdef import app
 
 photos = UploadSet('photos', IMAGES)
