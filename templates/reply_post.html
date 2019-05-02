@@ -54,6 +54,7 @@
     </div>
 
     <form action="/replying-{{post_id}}" method="POST" style="text-align:center;">
+      <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
       <textarea name="description" style="margin-top: -24px; margin-left: -138px; position: absolute; width: 280px;" placeholder="Enter your reply here!" required></textarea>
       <input type="submit" value =Submit class="button" style="margin-bottom:20px;margin-top: 20px; margin-left: -26px; position: absolute;"/>
     </form>

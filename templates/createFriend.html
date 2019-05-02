@@ -19,6 +19,7 @@
     <p class="error" style="font-size:14px;"><strong>Error:</strong> {{ error }}</p>
   {% endif %}
   <form id="form" action="/creatingFriends" method="POST">
+    <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
     <div id="questions">
       <div id = "question1">
       1. Give a name for your group:

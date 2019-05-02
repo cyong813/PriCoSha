@@ -10,6 +10,12 @@ import userInfo
 def add_header(response):
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public, max-age=0'
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE'
+    response.headers['X-XSS-Protection'] = '1'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
     return response
 
 
@@ -101,7 +107,7 @@ def storeComments(data):
         session['comments'][info['id']].append({'username': info['username'],
                                             'comment_text': info['comment_text'],
                                             'time': info['timest']})
-    return;
+    return
 
 def organizeData(diction, data):
     for mem in data:

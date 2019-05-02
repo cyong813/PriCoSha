@@ -21,6 +21,7 @@
     {% if session['username'] == username %}
       <a href ="/profile/edit-{{username}}">edit profile</a>
       <form action="/edit-profile/processing-{{username}}" method="POST" enctype = "multipart/form-data">
+        <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
         <div id="question1">
         <p style="font-size:14px;">1. Choose another image.</p>
         <input type="file" name = "photo" required/> </br>

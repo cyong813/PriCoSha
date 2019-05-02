@@ -1,6 +1,7 @@
-CREATE TABLE Person(
+CREATE TABLE Person (
 	username VARCHAR (50),
-	password VARCHAR (50),
+	password VARCHAR (100),
+	salt VARCHAR (100),
 	first_name VARCHAR (50),
 	last_name VARCHAR (50),
 	PRIMARY KEY (username)
@@ -13,7 +14,7 @@ CREATE TABLE Profile (
 	FOREIGN KEY(username) REFERENCES Person(username)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE Content(
+CREATE TABLE Content (
 	id INT AUTO_INCREMENT,
 	username VARCHAR (50),
 	timest TIMESTAMP,

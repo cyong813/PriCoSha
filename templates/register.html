@@ -26,6 +26,7 @@
           <input type="password" name = "retype" placeholder="3. Retype Password" required style="margin-left:-6px;margin-bottom:20px;"/></br>
           <input type="text" name = "firstname" placeholder="4. First Name" required/> </br>
           <input type="text" name = "lastname" placeholder="5. Last Name" required/> </br>
+          <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
           <input type="submit" value = Submit class="button"/>
           {% if error %}
             <p class="error"><strong>Error:</strong> {{error}}</p>

@@ -18,6 +18,7 @@ Hi <a href = "/profile/{{ session['username'] }}"> {{ session['users'][session['
     <p class="error" style="font-size:14px;"><strong>Error:</strong> {{ error }}</p>
   {% endif %}
   <form id = "form" action="/addingFriends" method="POST">
+    <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
     <div id="questions">
       <div id = "question1">
 
