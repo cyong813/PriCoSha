@@ -42,4 +42,4 @@ def storeUsers(data):
         # including groups you own
         session['users'][user['username']]['groups'] = []
         #addGroups(session['users'][user['username']]['groups'])
-    return;
+    return

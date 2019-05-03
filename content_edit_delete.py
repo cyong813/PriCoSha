@@ -106,9 +106,6 @@ def deletePost(post_id):
         delete = 'DELETE FROM likes WHERE likes.id=%s'
         cursor.execute(delete, (post_id))
         conn.commit() #commit the change to DB
-        delete = 'DELETE FROM comment WHERE comment.id=%s'
-        cursor.execute(delete, (post_id))
-        conn.commit() #commit the change to DB
         delete = 'DELETE FROM content WHERE content.id=%s'
         cursor.execute(delete, (post_id))
         conn.commit() #commit the change to DB

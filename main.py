@@ -66,18 +66,13 @@ def main():
         orgTagsData = {}
         tagz = organizeData(orgTagsData, tagsData)
 
-        # get comments for posts
-        commentsQuery = 'SELECT * FROM comment'
-        commentsData = getData(commentsQuery)
-        comments = storeComments(commentsData)
-
         userInfo.initiate()
 
         # get all the users
         userQuery = 'SELECT username, first_name, last_name FROM person'
         userData = getData(userQuery)
 
-        return render_template("index.html", data=postData, allLikes=allLikes, likesData=likesData, userLikesData=allLikes, tagsData=tagsData, commentsData=commentsData, userData=userData, tagz=tagz)
+        return render_template("index.html", data=postData, allLikes=allLikes, likesData=likesData, userLikesData=allLikes, tagsData=tagsData, userData=userData, tagz=tagz)
     return render_template("index.html")
 
 # function to make queries to database to acquire info
