@@ -4,14 +4,15 @@ A Flask application that allows users to create and share content items among gr
 
 ## How to run
 1. Make sure to install needed Python libraries: 
-    `pip install flask flask_uploads pymysql flask-scrypt`
-2. Dump database schema into a db (name it `pricosha`) and start your SQL server.
+    `pip install flask flask_uploads pymysql flask-scrypt flask_kvsession`. You also need to install redis separately on your computer.
+2. Dump database schema into a db (name it `pricosha`) and start your SQL server and redis server.
 3. Run `python init.py` in command prompt or terminal at the root folder of this project.
 4. Should be running at `localhost:5000`!
 
 ## Added Security Features
 - Use of flask-scrypt to hash+salt passwords, and included salts in db
 - Convert to https using SSL/TLS X509 certificate
+- Use redis & flask-kvsession to store session cookies & delete to prevent session replay attacks
 
 ## Available Features
 - Login

@@ -93,16 +93,6 @@ def addGroups(groupList):
     groupList.extend(cursor.fetchall())
     cursor.close()
 
-def storeComments(data):
-    session['comments'] = {}
-    for info in data:
-        if info['id'] not in session['comments'].keys():
-            session['comments'][info['id']] = []
-        session['comments'][info['id']].append({'username': info['username'],
-                                            'comment_text': info['comment_text'],
-                                            'time': info['timest']})
-    return
-
 def organizeData(diction, data):
     for mem in data:
         if mem['id'] not in diction.keys():
