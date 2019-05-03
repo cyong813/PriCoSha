@@ -28,4 +28,4 @@ A Flask application that allows users to create and share content items among gr
 - Feature No. 4 - Profile page for users
 
 ## Screenshots
-<img src="static/createGroup.png" width="200px">    <img src="static/friendspage.png" width="200px">    <img src="static/homepage.png" width="200px">
+<img src="static/createGroup.png" width="200px">    <img src="static/friendspage.png" width="200px">
