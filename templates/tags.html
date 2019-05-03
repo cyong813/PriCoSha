@@ -15,7 +15,6 @@
       {% if (data) %}
         <p style="font-size:16px;color:#ff5c50"> These are your pending tags: </p>
         <form action="/proccessTags" method="POST">
-          <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}"/>
           {% for tagRequest in data %}
             <div id = "choices">
               <p style="float:left;">{{ session['users'][tagRequest['username_tagger']]['first_name'] }} ({{ tagRequest['username_tagger'] }}) has tagged you in:</p>

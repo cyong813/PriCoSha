@@ -3,7 +3,6 @@ from appdef import app, conn
 import tags, content_edit_delete, friends, group, post_tag
 import getfriends, post_tag, register, profile
 from post_tag import makePost
-import reply_post
 import userInfo
 
 @app.after_request
