@@ -1,13 +1,14 @@
 ![PriCoSha](https://i.gyazo.com/184f69f915334ca8a29d9fb639080be5.png)
-# PriCoSha
-A Flask application that allows users to create and share content items among groups of other users.
+# PriCoSha 2.0
+A Flask application that allows users to create and share content items among groups of other users, enhanced with cryptographic methods to increase security measures. 
 
 ## How to run
 1. Make sure to install needed Python libraries: 
-    `pip install flask flask_uploads pymysql flask-scrypt flask_kvsession`. You also need to install redis separately on your computer.
-2. Dump database schema into a db (name it `pricosha`) and start your SQL server and redis server.
-3. Run `python init.py` in command prompt or terminal at the root folder of this project.
-4. Should be running at `localhost:5000`!
+    `pip install flask flask_uploads pymysql flask-scrypt flask_kvsession`. You also need to install redis separately on your computer, which can be done via `brew install redis` (Mac), through [downloadable zip files for Windows](https://github.com/dmajkic/redis/downloads), or [https://tosbourn.com/install-latest-version-redis-ubuntu/](Ubuntu).
+2. Obtain a self-signed certificate & key (`localhost.crt`, `localhost.key`) 
+3. Dump database schema into a db (name it `pricosha`) and start your SQL server and redis server via `redis-server` (for Windows just click the `redis-server` executable).
+4. Run `python init.py` in command prompt or terminal at the root folder of this project.
+5. Should be running at `https://localhost:5000`!
 
 ## Added Security Features
 - Use of flask-scrypt to hash+salt passwords, and included salts in db
