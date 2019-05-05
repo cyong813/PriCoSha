@@ -3,6 +3,7 @@ from appdef import app, conn
 import tags, main, time, datetime, os
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 from appdef import app
+from encryptor import enc
 
 photos = UploadSet('photos', IMAGES)
 
@@ -64,6 +65,7 @@ def makePostProcessed():
         friendgroup = request.form['friend_group_name']
 
     img_filepath = '/static/posts_pic/'
+    encrypted_img_filepath = '/static/private_pic/'
 
     if not allowed_file(request.files['photo'].filename):
         error = 'Please attach image files only.'
@@ -71,7 +73,14 @@ def makePostProcessed():
 
     if request.method == 'POST' and 'photo' in request.files:
         filename = photos.save(request.files['photo'])
-        img_filepath = img_filepath + filename
+        if (public == '1'):
+            img_filepath = img_filepath + filename
+        if (public == '0'):
+            enc.encryptFile("static/posts_pic/" + filename)
+            img_filepath = encrypted_img_filepath + filename
+       
+        #enc.decryptFile("static/posts_pic/" + filename + ".enc")
+        #img_filepath = enc.encrypt(str(img_filepath), key))
 
     if len(content_name) > 50:
         error = 'Description is too long. 50 characters max.'
@@ -134,7 +143,6 @@ def makePostProcessed():
         cursor.execute(query, (postID, group_name, username))
     conn.commit()
     cursor.close()
-
     return redirect(url_for('main'))
 
 @app.route('/tagUser/<post_id>')

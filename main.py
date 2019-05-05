@@ -3,6 +3,7 @@ from appdef import app, conn
 import tags, content_edit_delete, friends, group, post_tag
 import getfriends, post_tag, register, profile
 from post_tag import makePost
+from encryptor import enc
 import userInfo
 
 @app.after_request
@@ -43,6 +44,14 @@ def main():
         cursor = conn.cursor()
         username = session['username']
 
+        #decrypt images that are not public
+        pathsQuery = 'SELECT content.file_path FROM content WHERE content.public = 0'
+        cursor.execute(pathsQuery)
+        result = cursor.fetchall()
+        for i in result:
+            s = str(i)
+            enc.decryptFile('static/posts_pic/', (s[35:-2] + '.enc')) 
+
         #ids of all the visible posts
         cursor.execute(postQuery, (username, username, username))
         postData = cursor.fetchall()
@@ -71,6 +80,13 @@ def main():
         # get all the users
         userQuery = 'SELECT username, first_name, last_name FROM person'
         userData = getData(userQuery)
+
+        #delet
+        #cursor.execute(pathsQuery)
+        #result = cursor.fetchall()
+        #for i in result:
+         #   s = str(i)
+         #   os.remove('static/private_pic/' + s[35:-2]) 
 
         return render_template("index.html", data=postData, allLikes=allLikes, likesData=likesData, userLikesData=allLikes, tagsData=tagsData, userData=userData, tagz=tagz)
     return render_template("index.html")
