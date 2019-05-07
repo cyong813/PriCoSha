@@ -4,7 +4,7 @@ A Flask application that allows users to create and share content items among gr
 
 ## How to run
 1. Make sure to install needed Python libraries: 
-    `pip install flask flask_uploads pymysql flask-scrypt flask_kvsession pycryptodome`. You also need to install redis separately on your computer, which can be done via `brew install redis` (Mac), through [downloadable zip files for Windows](https://github.com/dmajkic/redis/downloads), or [https://tosbourn.com/install-latest-version-redis-ubuntu/](Ubuntu).
+    `pip install flask flask_uploads pymysql flask-scrypt flask_kvsession pycryptodome`. You also need to install redis separately on your computer, which can be done via `brew install redis` (Mac), through [downloadable zip files for Windows](https://github.com/dmajkic/redis/downloads), or [Ubuntu](https://tosbourn.com/install-latest-version-redis-ubuntu/).
 2. Obtain a self-signed certificate & key (`localhost.crt`, `localhost.key`) 
 3. Dump database schema into a db (name it `pricosha`) and start your SQL server and redis server via `redis-server` (for Windows just click the `redis-server` executable).
 4. Run `python init.py` in command prompt or terminal at the root folder of this project.
